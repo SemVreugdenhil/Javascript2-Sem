@@ -10,21 +10,23 @@ document.querySelector('#title').textContent = 'Hoi';
 // 2. Voeg een click event listener toe aan #toggle-btn.
 //    Bij klik wisselt de tekstkleur van #message tussen rood en zwart.
 //    Gebruik een variabele om bij te houden of de tekst nu rood is.
-    isRed = !isRed
-document.querySelector('#toggle-btn').addEventListener('click', msg)
-function msg() {
-    document.querySelector('#toggle-btn').style.color = "red"
+    isRed = false
+document.querySelector('#toggle-btn').addEventListener('click', function() {
+   document.querySelector('#toggle-btn').style.color = "red"
 
-    let message = document.querySelector("#message");
-    let isRed = false
+   let message = document.querySelector("#message");
 
-    if(isRed == true){        
+    if(isRed){        
         message.style.color = "red"
+        isRed = false
     }else {
         message.style.color = "black"
+        isRed = true
     }
-        isRed = !isRed
-}
+})
+
+ 
+
 
 
 
