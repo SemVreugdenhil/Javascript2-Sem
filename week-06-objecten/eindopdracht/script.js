@@ -7,12 +7,40 @@ const users = [
 
 let filter = 'all';
 
+
 const showUsers = (users) => {
+  console.log(users)
   // Gebruik destructuring voor elke user: const { name, email, role, active } = user
   // Toon elke user als een <article> in #users
+  
+const container = document.querySelector('#users');
+
+container.innerHTML = '';
+
+for (const user of users) {
+  const { name, email, role, active } = user;
+  let status = 'Inactief';
+    if (active) {
+      status = 'Actief';
+    }
+    
+container.innerHTML += `
+  <article>
+    <h3>${name}</h3>
+    <p>${email}</p>
+    <p>${role}</p>
+    <p>${active}</p>
+    <!-- zet hier ook email, role en status neer -->
+  </article>
+`;
+
+
+}
+
 };
 
 const filterUsers = () => {
+    showUsers(users);
   // Als filter 'admin' is, toon alleen gebruikers met role === 'admin'
   // Anders toon je alle gebruikers
   // Roep showUsers() aan met de gefilterde lijst
