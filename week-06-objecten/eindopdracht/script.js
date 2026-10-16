@@ -33,28 +33,56 @@ container.innerHTML += `
     <!-- zet hier ook email, role en status neer -->
   </article>
 `;
-
-
 }
 
 };
 
 const filterUsers = () => {
+  if (filter === 'admin') {
+    const admins = users.filter(user => user.role === 'admin');
+    showUsers(admins);
+  } else {
     showUsers(users);
+  }
   // Als filter 'admin' is, toon alleen gebruikers met role === 'admin'
   // Anders toon je alle gebruikers
   // Roep showUsers() aan met de gefilterde lijst
 };
 
+document.querySelector('#filter-admin').addEventListener('click', () => {
+  filter = 'admin';
+  filterUsers();
+});
 // Maak een eventlistener voor de #filter-admin button
 // Zet filter op 'admin' en roep filterUsers() aan
 
+document.querySelector('#filter-all').addEventListener('click', () => {
+  filter = 'all';
+  filterUsers();
+});
 // Maak een eventlistener voor de #filter-all button
 // Zet filter op 'all' en roep filterUsers() aan
+
+document.querySelector('#user-form').addEventListener('submit', (e) => {
+  e.preventDefault();
+  document.querySelector('#name').value
+  document.querySelector('#email').value
+  document.querySelector('#role').value
+});
+
+const newUser = {
+  ...defaultUser,
+  name: ___,
+  email: ___,
+  role: ___,
+};
 
 // Maak een eventlistener voor het #user-form submit event
 // Lees naam, email en role uit de invoervelden
 // Maak een nieuw user object aan met spread op een default object
 // Voeg toe aan de array en roep filterUsers() aan
+
+  users.push(newUser);
+  filterUsers();
 
 filterUsers();
