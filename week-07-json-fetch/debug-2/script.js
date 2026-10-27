@@ -1,5 +1,5 @@
-// Fout gevonden: _______________
-// Oplossing: _______________
+// Fout gevonden: _______________ de komma achter de laatste zin in products.json 
+// Oplossing: _______________ de komma achter de laatste zin in products.json weggehaald
 
 fetch('./products.json')
   .then(r => r.json())
