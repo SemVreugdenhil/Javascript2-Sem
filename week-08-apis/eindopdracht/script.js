@@ -32,14 +32,14 @@ const getWeather = (city) => {
   // Gebruik console.log(data) om de structuur te bekijken
   // Roep showWeather(data) aan met de response
 };
-let input = document.querySelector("#city-input");
+let cityInput = document.querySelector("#city-input");
 let searchForm = document.querySelector("#search-form");
 
 searchForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  let inputValue = input.value;
+  const city = document.getElementById('city-input').value;
   getWeather(city);
-  inputValue = "";
+  city.value = "";
 });
 
 // Voeg hier een submit event listener toe aan #search-form
